@@ -92,8 +92,10 @@ function curriedSum(numArgs) {
     return _curriedSum; 
 }
 
-console.log(curriedSum(3)(1)(2)(5));
-// curry definition =  
+// console.log(curriedSum(3)(1)(2)(5));
+
+// curry definition =  currying is the technique of translating the evaluation of a function that takes 
+// multiple arguments into a sequence of functions that each take in one argument (so each returns a function until complete)
 // (logFunc).curry
 Function.prototype.curry = function(numArgs) {
     const args = [];
@@ -113,9 +115,27 @@ Function.prototype.curry = function(numArgs) {
     
 }
 
-let logFunc = function(...args) {
+
+  
+// Function.prototype.curry = function (numArgs, ...args) {
+//     const that = this;
+
+//     function _curry(ele) {
+//         args.push(ele);
+
+//         if (args.length === numArgs) {
+//             that.apply(that, args)
+//         } else {
+//             return _curry
+//         }
+//     }
+//     return _curry
+
+// }
+
+let logFunc = function (...args) {
     for (let i = 0; i < args.length; i++) {
-      console.log(args[i]);
+        console.log(args[i]);
     }
 };
-  
+let test = logFunc.curry(3);
